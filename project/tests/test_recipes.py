@@ -1,9 +1,12 @@
-# projects/test.py
+# project/test_recipes.py
 
 import unittest
+
 from project import app
 
+
 class ProjectTests(unittest.TestCase):
+
     ############################
     #### setup and teardown ####
     ############################
@@ -27,7 +30,7 @@ class ProjectTests(unittest.TestCase):
     def test_main_page(self):
         response = self.app.get('/', follow_redirects=True)
         self.assertIn(b'Welcome to Daniels Recipe App!', response.data)
-        self.assertIn(b'This site describes my favorite recipes', response.data)
+        self.assertIn(b'This site describes my favorite recipes!', response.data)
         self.assertIn(b'Breakfast Recipes', response.data)
         self.assertIn(b'Lunch Recipes', response.data)
         self.assertIn(b'Dinner Recipes', response.data)
